@@ -1,0 +1,223 @@
+2022/01/12 17:20:14 Hello world!
+2022/01/12 17:20:14 waiting interrupt signal
+2022/01/13 12:31:53 Hello world!
+2022/01/13 12:31:53 waiting interrupt signal
+2022/01/13 14:42:03 Hello world!
+2022/01/13 14:42:03 waiting interrupt signal
+2022/01/13 14:42:27 can not Do request : %#v --> exit Post "http://axis-docker-frx-02.afoint01.lab.ingenico.com:9100/frx/initialize/1/": dial tcp 172.24.10.230:9100: connectex: Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée.
+2022/01/13 14:42:27 http: panic serving 192.168.0.240:46291: runtime error: invalid memory address or nil pointer dereference
+goroutine 18 [running]:
+net/http.(*conn).serve.func1(0xc0001b0000)
+	C:/Program Files/Go/src/net/http/server.go:1824 +0x153
+panic(0x695c60, 0x955820)
+	C:/Program Files/Go/src/runtime/panic.go:971 +0x49a
+main.HandleInitialization.func1(0x77c130, 0xc0000ae000, 0xc0000a0200, 0x0, 0x0)
+	C:/Users/oussama.djebbi/Downloads/Pont/main.go:93 +0x4cd
+main.handleHTTPError.func1(0x77c130, 0xc0000ae000, 0xc0000a0200)
+	C:/Users/oussama.djebbi/Downloads/Pont/main.go:282 +0x4a
+net/http.HandlerFunc.ServeHTTP(0xc000043dd0, 0x77c130, 0xc0000ae000, 0xc0000a0200)
+	C:/Program Files/Go/src/net/http/server.go:2069 +0x4b
+github.com/gorilla/mux.(*Router).ServeHTTP(0xc000200000, 0x77c130, 0xc0000ae000, 0xc0000a0000)
+	C:/Users/oussama.djebbi/go/pkg/mod/github.com/gorilla/mux@v1.8.0/mux.go:210 +0xe5
+net/http.serverHandler.ServeHTTP(0xc0001440e0, 0x77c130, 0xc0000ae000, 0xc0000a0000)
+	C:/Program Files/Go/src/net/http/server.go:2887 +0xaa
+net/http.(*conn).serve(0xc0001b0000, 0x77cd00, 0xc00008c000)
+	C:/Program Files/Go/src/net/http/server.go:1952 +0x8cd
+created by net/http.(*Server).Serve
+	C:/Program Files/Go/src/net/http/server.go:3013 +0x3b8
+2022/01/13 14:44:57 Hello world!
+2022/01/13 14:44:57 waiting interrupt signal
+2022/01/13 14:52:13 Hello world!
+2022/01/13 14:52:13 waiting interrupt signal
+2022/01/13 16:52:17 Hello world!
+2022/01/13 16:52:17 waiting interrupt signal
+2022/01/17 12:23:42 can not Do request : %#v --> exit Post "http://192.168.99.102:9500/frx/risk/1/debit/": dial tcp 192.168.99.102:9500: connectex: Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée.
+2022/01/17 12:23:42 http: panic serving 192.168.0.240:54491: runtime error: invalid memory address or nil pointer dereference
+goroutine 128 [running]:
+net/http.(*conn).serve.func1(0xc000167720)
+	C:/Program Files/Go/src/net/http/server.go:1824 +0x153
+panic(0x785c60, 0xa45820)
+	C:/Program Files/Go/src/runtime/panic.go:971 +0x49a
+main.HandleRiskManagement.func1(0x86c130, 0xc0002b4700, 0xc0002fd500, 0x0, 0x0)
+	C:/Users/oussama.djebbi/Downloads/Pont/main.go:162 +0x6bd
+main.handleHTTPError.func1(0x86c130, 0xc0002b4700, 0xc0002fd500)
+	C:/Users/oussama.djebbi/Downloads/Pont/main.go:282 +0x4a
+net/http.HandlerFunc.ServeHTTP(0xc000089bf0, 0x86c130, 0xc0002b4700, 0xc0002fd500)
+	C:/Program Files/Go/src/net/http/server.go:2069 +0x4b
+github.com/gorilla/mux.(*Router).ServeHTTP(0xc00015c000, 0x86c130, 0xc0002b4700, 0xc0002fd300)
+	C:/Users/oussama.djebbi/go/pkg/mod/github.com/gorilla/mux@v1.8.0/mux.go:210 +0xe5
+net/http.serverHandler.ServeHTTP(0xc00011a0e0, 0x86c130, 0xc0002b4700, 0xc0002fd300)
+	C:/Program Files/Go/src/net/http/server.go:2887 +0xaa
+net/http.(*conn).serve(0xc000167720, 0x86cd00, 0xc000287640)
+	C:/Program Files/Go/src/net/http/server.go:1952 +0x8cd
+created by net/http.(*Server).Serve
+	C:/Program Files/Go/src/net/http/server.go:3013 +0x3b8
+2022/01/17 12:24:17 can not Do request : %#v --> exit Post "http://192.168.99.102:9500/frx/authorization/1/debit/": dial tcp 192.168.99.102:9500: connectex: Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée.
+2022/01/17 12:24:17 http: panic serving 192.168.0.240:37266: runtime error: invalid memory address or nil pointer dereference
+goroutine 146 [running]:
+net/http.(*conn).serve.func1(0xc000166000)
+	C:/Program Files/Go/src/net/http/server.go:1824 +0x153
+panic(0x785c60, 0xa45820)
+	C:/Program Files/Go/src/runtime/panic.go:971 +0x49a
+main.HandleAuthorization.func1(0x86c130, 0xc00011a1c0, 0xc0002fc200, 0x0, 0x0)
+	C:/Users/oussama.djebbi/Downloads/Pont/main.go:225 +0x5f1
+main.handleHTTPError.func1(0x86c130, 0xc00011a1c0, 0xc0002fc200)
+	C:/Users/oussama.djebbi/Downloads/Pont/main.go:282 +0x4a
+net/http.HandlerFunc.ServeHTTP(0xc000089a70, 0x86c130, 0xc00011a1c0, 0xc0002fc200)
+	C:/Program Files/Go/src/net/http/server.go:2069 +0x4b
+github.com/gorilla/mux.(*Router).ServeHTTP(0xc00015c000, 0x86c130, 0xc00011a1c0, 0xc0002fc000)
+	C:/Users/oussama.djebbi/go/pkg/mod/github.com/gorilla/mux@v1.8.0/mux.go:210 +0xe5
+net/http.serverHandler.ServeHTTP(0xc00011a0e0, 0x86c130, 0xc00011a1c0, 0xc0002fc000)
+	C:/Program Files/Go/src/net/http/server.go:2887 +0xaa
+net/http.(*conn).serve(0xc000166000, 0x86cd00, 0xc000022040)
+	C:/Program Files/Go/src/net/http/server.go:1952 +0x8cd
+created by net/http.(*Server).Serve
+	C:/Program Files/Go/src/net/http/server.go:3013 +0x3b8
+2022/01/17 12:25:51 can not Do request : %#v --> exit Post "http://192.168.99.102:9500/frx/record/1/debit/": dial tcp 192.168.99.102:9500: connectex: Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée.
+2022/01/17 12:25:51 http: panic serving 192.168.0.240:52426: runtime error: invalid memory address or nil pointer dereference
+goroutine 164 [running]:
+net/http.(*conn).serve.func1(0xc000094000)
+	C:/Program Files/Go/src/net/http/server.go:1824 +0x153
+panic(0x785c60, 0xa45820)
+	C:/Program Files/Go/src/runtime/panic.go:971 +0x49a
+main.HandleRecording.func1(0x86c130, 0xc00011a1c0, 0xc0004c4100, 0x0, 0x0)
+	C:/Users/oussama.djebbi/Downloads/Pont/main.go:128 +0x5f1
+main.handleHTTPError.func1(0x86c130, 0xc00011a1c0, 0xc0004c4100)
+	C:/Users/oussama.djebbi/Downloads/Pont/main.go:282 +0x4a
+net/http.HandlerFunc.ServeHTTP(0xc000089900, 0x86c130, 0xc00011a1c0, 0xc0004c4100)
+	C:/Program Files/Go/src/net/http/server.go:2069 +0x4b
+github.com/gorilla/mux.(*Router).ServeHTTP(0xc00015c000, 0x86c130, 0xc00011a1c0, 0xc000118100)
+	C:/Users/oussama.djebbi/go/pkg/mod/github.com/gorilla/mux@v1.8.0/mux.go:210 +0xe5
+net/http.serverHandler.ServeHTTP(0xc00011a0e0, 0x86c130, 0xc00011a1c0, 0xc000118100)
+	C:/Program Files/Go/src/net/http/server.go:2887 +0xaa
+net/http.(*conn).serve(0xc000094000, 0x86cd00, 0xc000022040)
+	C:/Program Files/Go/src/net/http/server.go:1952 +0x8cd
+created by net/http.(*Server).Serve
+	C:/Program Files/Go/src/net/http/server.go:3013 +0x3b8
+2022/01/17 12:28:32 can not Do request : %#v --> exit Post "http://192.168.99.102:9500/frx/initialize/1/": dial tcp 192.168.99.102:9500: connectex: Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée.
+2022/01/17 12:28:32 http: panic serving 192.168.0.240:37296: runtime error: invalid memory address or nil pointer dereference
+goroutine 195 [running]:
+net/http.(*conn).serve.func1(0xc000094000)
+	C:/Program Files/Go/src/net/http/server.go:1824 +0x153
+panic(0x785c60, 0xa45820)
+	C:/Program Files/Go/src/runtime/panic.go:971 +0x49a
+main.HandleInitialization.func1(0x86c130, 0xc00011a1c0, 0xc000118300, 0x0, 0x0)
+	C:/Users/oussama.djebbi/Downloads/Pont/main.go:93 +0x4cd
+main.handleHTTPError.func1(0x86c130, 0xc00011a1c0, 0xc000118300)
+	C:/Users/oussama.djebbi/Downloads/Pont/main.go:282 +0x4a
+net/http.HandlerFunc.ServeHTTP(0xc000089dd0, 0x86c130, 0xc00011a1c0, 0xc000118300)
+	C:/Program Files/Go/src/net/http/server.go:2069 +0x4b
+github.com/gorilla/mux.(*Router).ServeHTTP(0xc00015c000, 0x86c130, 0xc00011a1c0, 0xc000118100)
+	C:/Users/oussama.djebbi/go/pkg/mod/github.com/gorilla/mux@v1.8.0/mux.go:210 +0xe5
+net/http.serverHandler.ServeHTTP(0xc00011a0e0, 0x86c130, 0xc00011a1c0, 0xc000118100)
+	C:/Program Files/Go/src/net/http/server.go:2887 +0xaa
+net/http.(*conn).serve(0xc000094000, 0x86cd00, 0xc0001a0040)
+	C:/Program Files/Go/src/net/http/server.go:1952 +0x8cd
+created by net/http.(*Server).Serve
+	C:/Program Files/Go/src/net/http/server.go:3013 +0x3b8
+2022/01/17 12:31:00 Hello world!
+2022/01/17 12:31:00 waiting interrupt signal
+2022/01/17 12:31:13 can not Do request : %#v --> exit Post "http://192.168.99.102:9500/frx/initialize/1/": dial tcp 192.168.99.102:9500: connectex: Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée.
+2022/01/17 12:31:13 http: panic serving 192.168.0.240:38542: runtime error: invalid memory address or nil pointer dereference
+goroutine 7 [running]:
+net/http.(*conn).serve.func1(0xc00005d400)
+	C:/Program Files/Go/src/net/http/server.go:1824 +0x153
+panic(0x785c60, 0xa45820)
+	C:/Program Files/Go/src/runtime/panic.go:971 +0x49a
+main.HandleInitialization.func1(0x86c130, 0xc0002040e0, 0xc0001e2300, 0x0, 0x0)
+	C:/Users/oussama.djebbi/Downloads/Pont/main.go:93 +0x4cd
+main.handleHTTPError.func1(0x86c130, 0xc0002040e0, 0xc0001e2300)
+	C:/Users/oussama.djebbi/Downloads/Pont/main.go:282 +0x4a
+net/http.HandlerFunc.ServeHTTP(0xc0001a6e40, 0x86c130, 0xc0002040e0, 0xc0001e2300)
+	C:/Program Files/Go/src/net/http/server.go:2069 +0x4b
+github.com/gorilla/mux.(*Router).ServeHTTP(0xc0001e4000, 0x86c130, 0xc0002040e0, 0xc0001e2100)
+	C:/Users/oussama.djebbi/go/pkg/mod/github.com/gorilla/mux@v1.8.0/mux.go:210 +0xe5
+net/http.serverHandler.ServeHTTP(0xc000204000, 0x86c130, 0xc0002040e0, 0xc0001e2100)
+	C:/Program Files/Go/src/net/http/server.go:2887 +0xaa
+net/http.(*conn).serve(0xc00005d400, 0x86cd00, 0xc0001ae2c0)
+	C:/Program Files/Go/src/net/http/server.go:1952 +0x8cd
+created by net/http.(*Server).Serve
+	C:/Program Files/Go/src/net/http/server.go:3013 +0x3b8
+2022/01/17 12:32:57 can not Do request : %#v --> exit Post "http://192.168.99.102:9500/frx/risk/1/debit/": dial tcp 192.168.99.102:9500: connectex: Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée.
+2022/01/17 12:32:57 http: panic serving 192.168.0.240:48141: runtime error: invalid memory address or nil pointer dereference
+goroutine 34 [running]:
+net/http.(*conn).serve.func1(0xc00008e000)
+	C:/Program Files/Go/src/net/http/server.go:1824 +0x153
+panic(0x785c60, 0xa45820)
+	C:/Program Files/Go/src/runtime/panic.go:971 +0x49a
+main.HandleRiskManagement.func1(0x86c130, 0xc0002041c0, 0xc0001e2800, 0x0, 0x0)
+	C:/Users/oussama.djebbi/Downloads/Pont/main.go:162 +0x6bd
+main.handleHTTPError.func1(0x86c130, 0xc0002041c0, 0xc0001e2800)
+	C:/Users/oussama.djebbi/Downloads/Pont/main.go:282 +0x4a
+net/http.HandlerFunc.ServeHTTP(0xc0001a6c60, 0x86c130, 0xc0002041c0, 0xc0001e2800)
+	C:/Program Files/Go/src/net/http/server.go:2069 +0x4b
+github.com/gorilla/mux.(*Router).ServeHTTP(0xc0001e4000, 0x86c130, 0xc0002041c0, 0xc0001e2600)
+	C:/Users/oussama.djebbi/go/pkg/mod/github.com/gorilla/mux@v1.8.0/mux.go:210 +0xe5
+net/http.serverHandler.ServeHTTP(0xc000204000, 0x86c130, 0xc0002041c0, 0xc0001e2600)
+	C:/Program Files/Go/src/net/http/server.go:2887 +0xaa
+net/http.(*conn).serve(0xc00008e000, 0x86cd00, 0xc0001ae540)
+	C:/Program Files/Go/src/net/http/server.go:1952 +0x8cd
+created by net/http.(*Server).Serve
+	C:/Program Files/Go/src/net/http/server.go:3013 +0x3b8
+2022/01/17 12:33:30 can not Do request : %#v --> exit Post "http://192.168.99.102:9500/frx/authorization/1/debit/": dial tcp 192.168.99.102:9500: connectex: Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée.
+2022/01/17 12:33:30 http: panic serving 192.168.0.240:37408: runtime error: invalid memory address or nil pointer dereference
+goroutine 8 [running]:
+net/http.(*conn).serve.func1(0xc00005d4a0)
+	C:/Program Files/Go/src/net/http/server.go:1824 +0x153
+panic(0x785c60, 0xa45820)
+	C:/Program Files/Go/src/runtime/panic.go:971 +0x49a
+main.HandleAuthorization.func1(0x86c130, 0xc0002042a0, 0xc0001e2d00, 0x0, 0x0)
+	C:/Users/oussama.djebbi/Downloads/Pont/main.go:225 +0x5f1
+main.handleHTTPError.func1(0x86c130, 0xc0002042a0, 0xc0001e2d00)
+	C:/Users/oussama.djebbi/Downloads/Pont/main.go:282 +0x4a
+net/http.HandlerFunc.ServeHTTP(0xc0001a6ae0, 0x86c130, 0xc0002042a0, 0xc0001e2d00)
+	C:/Program Files/Go/src/net/http/server.go:2069 +0x4b
+github.com/gorilla/mux.(*Router).ServeHTTP(0xc0001e4000, 0x86c130, 0xc0002042a0, 0xc0001e2b00)
+	C:/Users/oussama.djebbi/go/pkg/mod/github.com/gorilla/mux@v1.8.0/mux.go:210 +0xe5
+net/http.serverHandler.ServeHTTP(0xc000204000, 0x86c130, 0xc0002042a0, 0xc0001e2b00)
+	C:/Program Files/Go/src/net/http/server.go:2887 +0xaa
+net/http.(*conn).serve(0xc00005d4a0, 0x86cd00, 0xc0001ae700)
+	C:/Program Files/Go/src/net/http/server.go:1952 +0x8cd
+created by net/http.(*Server).Serve
+	C:/Program Files/Go/src/net/http/server.go:3013 +0x3b8
+2022/01/17 17:31:56 Hello world!
+2022/01/17 17:31:56 waiting interrupt signal
+2022/01/17 17:54:42 Hello world!
+2022/01/17 17:54:42 waiting interrupt signal
+2022/01/17 18:14:51 Hello world!
+2022/01/17 18:14:51 waiting interrupt signal
+2022/01/18 10:44:42 Hello world!
+2022/01/18 10:44:42 waiting interrupt signal
+2022/01/18 16:39:20 can not Do request : %#v --> exit Post "http://192.168.99.102:9500/frx/record/1/debit/": dial tcp 192.168.99.102:9500: connectex: Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée.
+2022/01/18 16:39:20 http: panic serving 192.168.0.240:52142: runtime error: invalid memory address or nil pointer dereference
+goroutine 67 [running]:
+net/http.(*conn).serve.func1(0xc0002c45a0)
+	C:/Program Files/Go/src/net/http/server.go:1824 +0x153
+panic(0x785c60, 0xa45820)
+	C:/Program Files/Go/src/runtime/panic.go:971 +0x49a
+main.HandleRecording.func1(0x86c130, 0xc0001fc700, 0xc000248f00, 0x0, 0x0)
+	C:/Users/oussama.djebbi/Downloads/Pont/main.go:128 +0x5f1
+main.handleHTTPError.func1(0x86c130, 0xc0001fc700, 0xc000248f00)
+	C:/Users/oussama.djebbi/Downloads/Pont/main.go:282 +0x4a
+net/http.HandlerFunc.ServeHTTP(0xc0001a4970, 0x86c130, 0xc0001fc700, 0xc000248f00)
+	C:/Program Files/Go/src/net/http/server.go:2069 +0x4b
+github.com/gorilla/mux.(*Router).ServeHTTP(0xc0001de000, 0x86c130, 0xc0001fc700, 0xc000248d00)
+	C:/Users/oussama.djebbi/go/pkg/mod/github.com/gorilla/mux@v1.8.0/mux.go:210 +0xe5
+net/http.serverHandler.ServeHTTP(0xc0001fc000, 0x86c130, 0xc0001fc700, 0xc000248d00)
+	C:/Program Files/Go/src/net/http/server.go:2887 +0xaa
+net/http.(*conn).serve(0xc0002c45a0, 0x86cd00, 0xc0001ab400)
+	C:/Program Files/Go/src/net/http/server.go:1952 +0x8cd
+created by net/http.(*Server).Serve
+	C:/Program Files/Go/src/net/http/server.go:3013 +0x3b8
+2022/01/19 18:21:35 Hello world!
+2022/01/19 18:21:35 waiting interrupt signal
+2022/01/19 18:28:11 Hello world!
+2022/01/19 18:28:11 waiting interrupt signal
+2022/01/19 19:10:52 Hello world!
+2022/01/19 19:10:52 waiting interrupt signal
+2022/01/20 10:58:18 Hello world!
+2022/01/20 10:58:18 waiting interrupt signal
+2022/01/25 11:22:01 Hello world!
+2022/01/25 11:22:01 waiting interrupt signal
+2022/01/25 11:22:01 listen:%+s
+ listen tcp :9100: bind: Une seule utilisation de chaque adresse de socket (protocole/adresse réseau/port) est habituellement autorisée.
