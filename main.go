@@ -58,28 +58,28 @@ func main() {
 
 	cancel()
 }
-func setRouter(service *Frx) *mux.Router {
+func setRouter(service *Server) *mux.Router {
 	router := mux.NewRouter()
 
-	router.HandleFunc("/frx/record/{customerID:[0-9]+}/{transactionType}/", HandleRecording(service)).Methods("POST")
+	router.HandleFunc("/server/record/{customerID:[0-9]+}/{transactionType}/", HandleRecording(service)).Methods("POST")
 
-	router.HandleFunc("/frx/authorization/{customerID:[0-9]+}/{transactionType}/", HandleAuthorization(service)).Methods("POST")
+	router.HandleFunc("/server/authorization/{customerID:[0-9]+}/{transactionType}/", HandleAuthorization(service)).Methods("POST")
 
-	router.HandleFunc("/frx/risk/{customerID:[0-9]+}/{transactionType}/", HandleRiskManagement(service)).Methods("POST")
+	router.HandleFunc("/server/risk/{customerID:[0-9]+}/{transactionType}/", HandleRiskManagement(service)).Methods("POST")
 
 	router.HandleFunc("/admin/health/", HandleServiceAvailability(service)).Methods("POST")
 
-	router.HandleFunc("/frx/initialize/{customerID:[0-9]+}/", HandleInitialization(service)).Methods("POST")
+	router.HandleFunc("/server/initialize/{customerID:[0-9]+}/", HandleInitialization(service)).Methods("POST")
 	return router
 }
-func HandleInitialization(service *Frx) func(http.ResponseWriter, *http.Request) {
+func HandleInitialization(service *Server) func(http.ResponseWriter, *http.Request) {
 	return handleHTTPError(func(resp http.ResponseWriter, req *http.Request) error {
 		params := mux.Vars(req)
 		customerID := params["customerID"]
 		resp.Header()["RequestUuid"] = []string{req.Header.Get("RequestUuid")}
 		c := http.Client{}
 		fmt.Println("req is", req)
-		url := "http://" + service.Config.Host + ":" + service.Config.Port + "/frx/initialize/" + customerID + "/"
+		url := "http://" + service.Config.Host + ":" + service.Config.Port + "/server/initialize/" + customerID + "/"
 		request, err := http.NewRequest("POST", url, req.Body)
 		if err != nil {
 			log.Println("can not Initiliaze request : %#v --> exit", err)
@@ -104,7 +104,7 @@ func HandleInitialization(service *Frx) func(http.ResponseWriter, *http.Request)
 		return nil
 	})
 }
-func HandleRecording(service *Frx) func(http.ResponseWriter, *http.Request) {
+func HandleRecording(service *Server) func(http.ResponseWriter, *http.Request) {
 	return handleHTTPError(func(resp http.ResponseWriter, req *http.Request) error {
 		params := mux.Vars(req)
 		customerID := params["customerID"]
@@ -112,7 +112,7 @@ func HandleRecording(service *Frx) func(http.ResponseWriter, *http.Request) {
 
 		resp.Header()["RequestUuid"] = []string{req.Header.Get("RequestUuid")}
 		c := http.Client{}
-		url := "http://" + service.Config.Host + ":" + service.Config.Port + "/frx/record/" + customerID + "/" + transactionType + "/"
+		url := "http://" + service.Config.Host + ":" + service.Config.Port + "/server/record/" + customerID + "/" + transactionType + "/"
 
 		request, err := http.NewRequest("POST", url, req.Body)
 		if err != nil {
@@ -139,14 +139,14 @@ func HandleRecording(service *Frx) func(http.ResponseWriter, *http.Request) {
 		return nil
 	})
 }
-func HandleRiskManagement(service *Frx) func(http.ResponseWriter, *http.Request) {
+func HandleRiskManagement(service *Server) func(http.ResponseWriter, *http.Request) {
 	return handleHTTPError(func(resp http.ResponseWriter, req *http.Request) error {
 		resp.Header()["RequestUuid"] = []string{req.Header.Get("RequestUuid")}
 		params := mux.Vars(req)
 		customerID := params["customerID"]
 		transactionType := params["transactionType"]
 		c := http.Client{}
-		url := "http://" + service.Config.Host + ":" + service.Config.Port + "/frx/risk/" + customerID + "/" + transactionType + "/"
+		url := "http://" + service.Config.Host + ":" + service.Config.Port + "/server/risk/" + customerID + "/" + transactionType + "/"
 
 		request, err := http.NewRequest("POST", url, req.Body)
 		fmt.Println(url)
@@ -173,7 +173,7 @@ func HandleRiskManagement(service *Frx) func(http.ResponseWriter, *http.Request)
 		return nil
 	})
 }
-func HandleServiceAvailability(service *Frx) func(http.ResponseWriter, *http.Request) {
+func HandleServiceAvailability(service *Server) func(http.ResponseWriter, *http.Request) {
 	return handleHTTPError(func(resp http.ResponseWriter, req *http.Request) error {
 		resp.Header()["RequestUuid"] = []string{req.Header.Get("RequestUuid")}
 		c := http.Client{}
@@ -202,7 +202,7 @@ func HandleServiceAvailability(service *Frx) func(http.ResponseWriter, *http.Req
 		return nil
 	})
 }
-func HandleAuthorization(service *Frx) func(http.ResponseWriter, *http.Request) {
+func HandleAuthorization(service *Server) func(http.ResponseWriter, *http.Request) {
 	return handleHTTPError(func(resp http.ResponseWriter, req *http.Request) error {
 
 		params := mux.Vars(req)
@@ -210,7 +210,7 @@ func HandleAuthorization(service *Frx) func(http.ResponseWriter, *http.Request) 
 		transactionType := params["transactionType"]
 		resp.Header()["RequestUuid"] = []string{req.Header.Get("RequestUuid")}
 		c := http.Client{}
-		url := "http://" + service.Config.Host + ":" + service.Config.Port + "/frx/authorization/" + customerID + "/" + transactionType + "/"
+		url := "http://" + service.Config.Host + ":" + service.Config.Port + "/server/authorization/" + customerID + "/" + transactionType + "/"
 
 		request, err := http.NewRequest("POST", url, req.Body)
 		if err != nil {
@@ -240,13 +240,13 @@ func HandleAuthorization(service *Frx) func(http.ResponseWriter, *http.Request) 
 func initServer(ctx context.Context) (*http.Server, error) {
 	var config Config
 	viper.UnmarshalKey("service", &config)
-	frxService := &Frx{
+	serverService := &Server{
 		Ctx:    ctx,
 		Config: config,
 	}
 	return &http.Server{
 		Addr:    ":" + "9100",
-		Handler: setRouter(frxService),
+		Handler: setRouter(serverService),
 	}, nil
 }
 
@@ -287,7 +287,7 @@ func handleHTTPError(h handlerFuncError) http.HandlerFunc {
 type HTTPClient interface {
 	Do(req *http.Request) (*http.Response, error)
 }
-type Frx struct {
+type Server struct {
 	Config Config
 	Ctx    context.Context
 }
